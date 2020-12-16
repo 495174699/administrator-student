@@ -1,0 +1,70 @@
+<template>
+  <div class="lonin-container">
+<el-form ref="form" :model="user" class="login-form">
+  <el-form-item >
+    <img src="./logo_index.png" alt="" class="img">
+  </el-form-item>
+
+  <el-form-item >
+    <el-input v-model="user.mobile" placeholder="请输入手机号"></el-input>
+  </el-form-item>
+  <el-form-item >
+    <el-input v-model="user.code" placeholder="请输入密码"></el-input>
+  </el-form-item>
+  <el-form-item >
+    <el-checkbox v-model="checked">我已阅读并同意用户协议和隐私条款</el-checkbox>
+  </el-form-item>
+  <el-form-item>
+    <el-button type="primary" @click="onSubmit" class="login-btn">登录</el-button>
+  </el-form-item>
+
+</el-form>
+  </div>
+</template>
+
+<script>
+export default {
+    name:'LoginIndex',
+    data() {
+      return {
+        user: {
+          mobile:'',
+          code:''
+        },
+        checked:true
+      }
+    },
+    methods: {
+      onSubmit() {
+        console.log('submit!');
+      }
+    }
+}
+</script>
+
+<style scoped lang="less">
+    .lonin-container {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('./login_bg.jpg');
+        background-size: cover;
+    }
+    .login-form {
+        background-color: #fff;
+        padding: 50px;
+        min-width: 300px;
+    }
+    .login-btn {
+        width: 100%;
+    }
+    .img {
+        width: 100%;
+        height: 60px;
+    }
+</style>
