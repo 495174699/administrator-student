@@ -18,59 +18,101 @@ Vue.use(VueRouter)
 
 const routes = [{
         path: '',
-        redirect: '/login'
+        redirect: '/login',
+        meta: {
+            // title: '注册'
+        }
     },
     {
         path: '/login',
         name: 'login',
-        component: Login
+        component: Login,
+        meta: {
+            title: '注册'
+        }
     },
     {
         path: '/layout',
         // name: 'layout',
         component: Layout,
+        meta: {
+            title: '首页'
+        },
         // 路由嵌套
         children: [{
                 path: '',
                 name: 'home',
-                component: Home
+                component: Home,
+                meta: {
+                    title: '首页'
+                }
             },
             {
                 path: '/article',
                 name: 'article',
-                component: article
+                component: article,
+                meta: {
+                    title: '发布文章'
+                }
             },
             {
                 path: '/sucai',
                 name: 'sucai',
-                component: sucai
+                component: sucai,
+                meta: {
+                    title: '素材管理'
+                }
             },
             {
                 path: '/commen',
                 name: 'commen',
-                component: commen
+                component: commen,
+                meta: {
+                    title: '评论管理'
+                }
             },
             {
                 path: '/public',
                 name: 'public',
-                component: publics
+                component: publics,
+                meta: {
+                    title: '注册'
+                }
             },
             {
                 path: '/profile',
                 name: 'profile',
-                component: profile
+                component: profile,
+                meta: {
+                    title: '个人中心'
+                }
             },
             {
                 path: '/content',
                 name: 'content',
-                component: content
+                component: content,
+                meta: {
+                    title: '内容管理'
+                }
             }
         ]
     }
 ]
 
 const router = new VueRouter({
-    routes
-})
+        routes
+    })
+    // 全局导航守卫(前置钩子)
+router.beforeEach((to, from, next) => {
 
+        document.title = to.matched[0].meta.title
+        next()
+            // console.log(22);
+    })
+    // 后置钩子
+router.afterEach((to, from) => {
+    // console.log(11);
+    // console.log(from);
+    // console.log(to);
+})
 export default router
