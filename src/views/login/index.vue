@@ -14,15 +14,17 @@
   <el-form-item >
     <el-checkbox v-model="checked">我已阅读并同意用户协议和隐私条款</el-checkbox>
   </el-form-item>
-  <el-form-item>
-    <el-button type="primary" @click="onSubmit" class="login-btn">登录</el-button>
-  </el-form-item>
 
-</el-form>
+  <el-form-item>
+    <el-button type="primary" @click="onSubmit" class="login-btn" :plain="true" :loading="loading">登录</el-button>
+  </el-form-item>
+  <!-- <el-button :plain="true" >打开消息提示</el-button> -->
+</el-form>  
   </div>
 </template>
 
 <script>
+import request from '../../utils/requset'
 export default {
     name:'LoginIndex',
     data() {
@@ -31,12 +33,25 @@ export default {
           mobile:'',
           code:''
         },
-        checked:true
+        checked:true,
+        loading:false
       }
     },
     methods: {
       onSubmit() {
-        console.log('submit!');
+        console.log('submit!')
+
+        this.$message({
+          message: '登录成功',
+          type: 'success'
+        })
+
+        this.loading = true
+        setTimeout(() => {
+          this.loading = false
+        },1000)
+
+        this.$router.push('layout')
       }
     }
 }

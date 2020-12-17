@@ -4,7 +4,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-    baseURL: 'http://ttapi.research.itcast.cn/'
+    baseURL: 'http://localhost:8080/'
 })
 
 // 导出请求方法
