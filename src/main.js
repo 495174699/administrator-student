@@ -15,6 +15,9 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
+// 事件总线
+Vue.prototype.$bus = new Vue()
+
 /**
  * 创建vue根实列
  * 把router配置到根里面

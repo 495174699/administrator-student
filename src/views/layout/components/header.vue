@@ -1,25 +1,45 @@
 <template>
   <div class="herder-container">
         <div>
-            <i class="el-icon-s-fold"></i>
-            <span>黑马头条后台管理系统</span>
+            <i class="el-icon-s-fold" @click="iclick"></i>
+            <span>学生成绩管理系统</span>
         </div>
-        <el-dropdown>
+        <el-dropdown @command="handleCommand">
           <span class="el-dropdown-link">
             <img src="./avatar.jpg" alt="">
-            <i class="el-icon-arrow-down el-icon--right"></i>
+            
+            <i class="el-icon-arrow-down el-icon--right">系统</i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>设置</el-dropdown-item>
-            <el-dropdown-item>退出</el-dropdown-item>
+            <el-dropdown-item @click="over">退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
   </div>
 </template>
 
 <script>
+// 取消浏览器后退
+history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
 export default {
-    name:'headercontainer'
+    name:'headercontainer',
+    data() {
+      return {
+
+      }
+    },
+    methods:{
+      handleCommand(command) {
+        this.over()
+      },
+       over() {
+        // this.$router.go(-1)
+        location.href='http://localhost:8081/#/login'
+        this.$message('已退出');
+       }
+    }
 }   
 </script>
 

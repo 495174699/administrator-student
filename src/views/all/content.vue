@@ -1,5 +1,6 @@
 <template>
-  <h2>内容管理</h2>
+  <h2>信息管理</h2>
+  
 </template>
 
 <script>

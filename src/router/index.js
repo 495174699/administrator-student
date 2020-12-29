@@ -12,90 +12,40 @@ import commen from '@/views/all/commen'
 import publics from '@/views/all/public'
 import profile from '@/views/all/profile'
 import content from '@/views/all/content'
-
+import onlogin from '@/views/onlogin'
 // import { component } from 'vue/types/umd'
 Vue.use(VueRouter)
 
 const routes = [{
         path: '',
         redirect: '/login',
-        meta: {
-            // title: '注册'
-        }
+        // meta: {
+        //     // title: '注册'
+        // }
     },
     {
         path: '/login',
         name: 'login',
         component: Login,
         meta: {
+            title: '注册&登录'
+        }
+    },
+    {
+        path: '/onlogin',
+        name: 'onlogin',
+        component: onlogin,
+        meta: {
             title: '注册'
         }
     },
     {
-        path: '/layout',
+        path: '/layout/:id',
         // name: 'layout',
-        component: Layout,
         meta: {
-            title: '首页'
+            title: '主页'
         },
-        // 路由嵌套
-        children: [{
-                path: '',
-                name: 'home',
-                component: Home,
-                meta: {
-                    title: '首页'
-                }
-            },
-            {
-                path: '/article',
-                name: 'article',
-                component: article,
-                meta: {
-                    title: '发布文章'
-                }
-            },
-            {
-                path: '/sucai',
-                name: 'sucai',
-                component: sucai,
-                meta: {
-                    title: '素材管理'
-                }
-            },
-            {
-                path: '/commen',
-                name: 'commen',
-                component: commen,
-                meta: {
-                    title: '评论管理'
-                }
-            },
-            {
-                path: '/public',
-                name: 'public',
-                component: publics,
-                meta: {
-                    title: '注册'
-                }
-            },
-            {
-                path: '/profile',
-                name: 'profile',
-                component: profile,
-                meta: {
-                    title: '个人中心'
-                }
-            },
-            {
-                path: '/content',
-                name: 'content',
-                component: content,
-                meta: {
-                    title: '内容管理'
-                }
-            }
-        ]
+        component: Layout,
     }
 ]
 

@@ -1,21 +1,21 @@
 <template>
-<div>
       <el-col :span="12">
     <el-menu
+    
       default-active="layout"
       class="el-menu-vertical-demo"
-      background-color="#002033"
-      text-color="#fff"
-      router
+      text-color="#000"
+      
+      :collapse="iscollpace"
       active-text-color="#ffd04b">
-      <img src="../logo_index.png" alt="" class="img">
-      <el-menu-item index="layout">
+      <!-- <img src="../logo_index.png" alt="" class="img"> -->
+      <el-menu-item >
         <i class="iconfont iconshouye"></i>
-        <span slot="title">首页</span>
+        <span slot="title" >首页</span>
       </el-menu-item>
-      <el-menu-item index="content">
+      <!-- <el-menu-item index="content">
        <i class="iconfont iconneirongguanli"></i>
-        <span slot="title">内容管理</span>
+        <span slot="title">信息管理</span>
       </el-menu-item>
        <el-menu-item index="sucai">
        <i class="iconfont iconimage"></i>
@@ -36,16 +36,23 @@
       <el-menu-item index="profile">
         <i class="iconfont el-icon-setting"></i> 
         <span slot="title">个人设置</span>
-      </el-menu-item>
+      </el-menu-item> -->
     </el-menu>
   </el-col>
-</div>
 </template>
 
 <script>
 export default {
     name:'aside',
      methods: {
+     
+    },
+    data() {
+      return {
+        iscollpace:false
+      }
+    },
+    methods:{
      
     }
 }
@@ -59,9 +66,10 @@ export default {
   height: 34px;
 }
 .el-menu-vertical-demo {
-  border-right: 1px solid black;
-  width: 199px;
-  height: 647px;
+  height: 646px;
+  border-right: solid 0px #e6e6e6;
+  // background-color: red;
+  // width: 180%
 }
 .iconfont {
   margin-right: 5px;
